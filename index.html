@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Rock Paper Scissors — UI (HTML + CSS)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <header>
+        <h1>Rock Paper Scissors</h1>
+        <p>Pick your move!</p>
+      </header>
+
+      <main class="choices">
+        <button class="choice choice--rock" aria-label="Rock">
+          <span class="icon">🪨</span>
+          Rock
+        </button>
+        <button class="choice choice--paper" aria-label="Paper">
+          <span class="icon">📄</span>
+          Paper
+        </button>
+        <button class="choice choice--scissors" aria-label="Scissors">
+          <span class="icon">✂️</span>
+          Scissors
+        </button>
+      </main>
+
+      <section class="scoreboard" aria-label="Scoreboard">
+        <div>
+          <span class="label">Player</span>
+          <span class="value">0</span>
+        </div>
+        <div>
+          <span class="label">Computer</span>
+          <span class="value">0</span>
+        </div>
+      </section>
+
+      <section class="results hide-banner" aria-label="Results Screen">
+        <h2>You Win!</h2>
+        <p>Paper beats Rock</p>
+        <div class="results-grid">
+          <div class="picked">
+            <div class="icon">📄</div>
+            <span>You Picked</span>
+          </div>
+          <div class="picked">
+            <div class="icon">🪨</div>
+            <span>Computer Picked</span>
+          </div>
+        </div>
+        <button class="btn btn--primary">Play Again</button>
+      </section>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
