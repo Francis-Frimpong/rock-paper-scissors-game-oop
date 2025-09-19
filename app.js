@@ -1,24 +1,20 @@
-class Players {
+class PlayerChar {
   constructor() {
     this.score = 0;
   }
 }
 
-class Player extends Players {
+class Player extends PlayerChar {
   constructor() {
     super();
   }
 
-  playerChoice() {
-    const playerChoices = document.querySelector(".choices");
-    playerChoices.addEventListener("click", (e) => {
-      console.log(e.target.getAttribute("aria-label"));
-    });
-    return playerChoices;
+  playerChoice(e) {
+    return e.target.getAttribute("aria-label");
   }
 }
 
-class Computer extends Players {
+class Computer extends PlayerChar {
   constructor() {
     super();
   }
@@ -29,18 +25,29 @@ class Computer extends Players {
   }
 }
 
-class GamePlay {
+//
+class GameEngine {
   constructor() {
     this.player = new Player();
     this.computer = new Computer();
 
     this.player.score;
     this.computer.score;
+
+    this.choices = ["Rock", "Paper", "Scissors"];
+  }
+
+  gamePlay(e) {
+    let player = this.player.playerChoice(e);
+    let computer = this.computer.computerChoice(this.choices);
+    console.log(`Player:${player}, Computer:${computer}`);
+  }
+
+  addEventListeners() {
+    const playerChoices = document.querySelector(".choices");
+    playerChoices.addEventListener("click", (e) => this.gamePlay(e));
   }
 }
 
-const player = new Player();
-player.playerChoice();
-
-const computer = new Computer();
-computer.computerChoice(["Rock", "Paper", "Scissors"]);
+const game = new GameEngine();
+game.addEventListeners();
