@@ -43,21 +43,24 @@ class GameEngine {
     if (!player) return;
 
     let computer = this.computer.computerChoice(this.choices);
-    console.log(`Player:${player}, Computer:${computer}`);
+    // console.log(`Player:${player}, Computer:${computer}`);
 
-    // if (
-    //   (player === "Rock" && computer === "Scissors") ||
-    //   (player === "Scissors" && computer === "Paper") ||
-    //   (player === "Paper" && computer === "Rock")
-    // ) {
-    //   return (document.querySelector(".player-value").textContent =
-    //     this.player.score +=
-    //       1);
-    // } else {
-    //   return (document.querySelector(".player-value").textContent =
-    //     this.computer.score +=
-    //       1);
-    // }
+    // rule for game
+    const rule = {
+      Rock: "Scissors",
+      Scissors: "Paper",
+      Paper: "Rock",
+    };
+    // Draw condition and win condition
+    if (player === computer) {
+      return;
+    } else if (rule[player] === computer) {
+      document.querySelector(".player-value").textContent =
+        this.player.score += 1;
+    } else {
+      document.querySelector(".computer-value").textContent =
+        this.computer.score += 1;
+    }
   }
 
   addEventListeners() {
