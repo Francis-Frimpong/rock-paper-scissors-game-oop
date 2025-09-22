@@ -39,6 +39,9 @@ class GameEngine {
 
   gamePlay(e) {
     let player = this.player.playerChoice(e);
+    // Guard against null or undifined
+    if (!player) return;
+
     let computer = this.computer.computerChoice(this.choices);
     console.log(`Player:${player}, Computer:${computer}`);
   }
