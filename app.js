@@ -44,6 +44,20 @@ class GameEngine {
 
     let computer = this.computer.computerChoice(this.choices);
     console.log(`Player:${player}, Computer:${computer}`);
+
+    // if (
+    //   (player === "Rock" && computer === "Scissors") ||
+    //   (player === "Scissors" && computer === "Paper") ||
+    //   (player === "Paper" && computer === "Rock")
+    // ) {
+    //   return (document.querySelector(".player-value").textContent =
+    //     this.player.score +=
+    //       1);
+    // } else {
+    //   return (document.querySelector(".player-value").textContent =
+    //     this.computer.score +=
+    //       1);
+    // }
   }
 
   addEventListeners() {
