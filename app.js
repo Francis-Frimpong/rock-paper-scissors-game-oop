@@ -63,7 +63,7 @@ class GameEngine {
         this.computer.score += 1;
     }
 
-    // Checking for winner score
+    // Checking for winner
     if (this.player.score >= this.winningScore) {
       console.log(`player wins!`);
       document.querySelector(".player-value").textContent =
