@@ -63,7 +63,7 @@ class GameEngine {
         this.computer.score += 1;
     }
 
-    // Checking for winner
+    // Checking for overall winner
     if (this.player.score >= this.winningScore) {
       document.querySelector(".winnerTag").textContent = "Player Wins!!!";
       document.querySelector(".results").classList.remove("hide-banner");
