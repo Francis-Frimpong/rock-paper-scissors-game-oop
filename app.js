@@ -35,6 +35,7 @@ class GameEngine {
     this.computer.score;
 
     this.choices = ["Rock", "Paper", "Scissors"];
+    this.winningScore = 5;
   }
 
   gamePlay(e) {
@@ -60,6 +61,21 @@ class GameEngine {
     } else {
       document.querySelector(".computer-value").textContent =
         this.computer.score += 1;
+    }
+
+    // Checking for winner score
+    if (this.player.score >= this.winningScore) {
+      console.log(`player wins!`);
+      document.querySelector(".player-value").textContent =
+        this.player.score = 0;
+      document.querySelector(".computer-value").textContent =
+        this.computer.score = 0;
+    } else if (this.computer.score >= this.winningScore) {
+      console.log(`computer wins!`);
+      document.querySelector(".player-value").textContent =
+        this.player.score = 0;
+      document.querySelector(".computer-value").textContent =
+        this.computer.score = 0;
     }
   }
 
