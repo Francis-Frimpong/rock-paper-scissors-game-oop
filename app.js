@@ -65,9 +65,11 @@ class GameEngine {
 
     // Checking for winner
     if (this.player.score >= this.winningScore) {
-      console.log(`player wins!`);
+      document.querySelector(".winnerTag").textContent = "Player Wins!!!";
+      document.querySelector(".results").classList.remove("hide-banner");
     } else if (this.computer.score >= this.winningScore) {
-      console.log(`computer wins!`);
+      document.querySelector(".winnerTag").textContent = "Computer Wins!!!";
+      document.querySelector(".results").classList.remove("hide-banner");
     }
   }
 
