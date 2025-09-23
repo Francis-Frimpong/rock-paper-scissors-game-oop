@@ -66,21 +66,24 @@ class GameEngine {
     // Checking for winner
     if (this.player.score >= this.winningScore) {
       console.log(`player wins!`);
-      document.querySelector(".player-value").textContent =
-        this.player.score = 0;
-      document.querySelector(".computer-value").textContent =
-        this.computer.score = 0;
     } else if (this.computer.score >= this.winningScore) {
       console.log(`computer wins!`);
-      document.querySelector(".player-value").textContent =
-        this.player.score = 0;
-      document.querySelector(".computer-value").textContent =
-        this.computer.score = 0;
     }
+  }
+
+  resetScore() {
+    document.querySelector(".player-value").textContent = this.player.score = 0;
+    document.querySelector(".computer-value").textContent =
+      this.computer.score = 0;
+
+    document.querySelector(".results").classList.add("hide-banner");
   }
 
   addEventListeners() {
     const playerChoices = document.querySelector(".choices");
+    const resetBtn = document.querySelector(".btn--primary");
+
+    resetBtn.addEventListener("click", () => this.resetScore());
     playerChoices.addEventListener("click", (e) => this.gamePlay(e));
   }
 }

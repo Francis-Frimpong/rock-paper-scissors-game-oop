@@ -116,9 +116,6 @@ header p {
   font-size: 1.4rem;
 }
 
-.results.hide-banner {
-  display: none;
-}
 .results {
   text-align: center;
   display: flex;
@@ -167,6 +164,10 @@ header p {
 .btn--primary {
   background: linear-gradient(90deg, var(--accent2), var(--accent3));
   color: white;
+}
+
+.hide-banner {
+  display: none;
 }
 
 footer {
