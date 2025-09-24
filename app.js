@@ -34,6 +34,15 @@ class GameEngine {
     this.player.score;
     this.computer.score;
 
+    this.playerScoreCard = document.querySelector(".player-value");
+    this.computerScoreCard = document.querySelector(".computer-value");
+
+    this.results = document.querySelector(".results");
+    this.winningTag = document.querySelector(".winnerTag");
+
+    this.playerChoices = document.querySelector(".choices");
+    this.resetBtn = document.querySelector(".btn--primary");
+
     this.choices = ["Rock", "Paper", "Scissors"];
     this.winningScore = 5;
   }
@@ -56,37 +65,31 @@ class GameEngine {
     if (player === computer) {
       return;
     } else if (rule[player] === computer) {
-      document.querySelector(".player-value").textContent =
-        this.player.score += 1;
+      this.playerScoreCard.textContent = this.player.score += 1;
     } else {
-      document.querySelector(".computer-value").textContent =
-        this.computer.score += 1;
+      this.computerScoreCard.textContent = this.computer.score += 1;
     }
 
     // Checking for overall winner
     if (this.player.score >= this.winningScore) {
-      document.querySelector(".winnerTag").textContent = "Player Wins!!!";
-      document.querySelector(".results").classList.remove("hide-banner");
+      this.winningTag.textContent = "Player Wins!!!";
+      this.results.classList.remove("hide-banner");
     } else if (this.computer.score >= this.winningScore) {
-      document.querySelector(".winnerTag").textContent = "Computer Wins!!!";
-      document.querySelector(".results").classList.remove("hide-banner");
+      this.winningTag.textContent = "Computer Wins!!!";
+      this.results.classList.remove("hide-banner");
     }
   }
 
   resetScore() {
-    document.querySelector(".player-value").textContent = this.player.score = 0;
-    document.querySelector(".computer-value").textContent =
-      this.computer.score = 0;
+    this.playerScoreCard.textContent = this.player.score = 0;
+    this.computerScoreCard.textContent = this.computer.score = 0;
 
-    document.querySelector(".results").classList.add("hide-banner");
+    this.results.classList.add("hide-banner");
   }
 
   addEventListeners() {
-    const playerChoices = document.querySelector(".choices");
-    const resetBtn = document.querySelector(".btn--primary");
-
-    resetBtn.addEventListener("click", () => this.resetScore());
-    playerChoices.addEventListener("click", (e) => this.gamePlay(e));
+    this.resetBtn.addEventListener("click", () => this.resetScore());
+    this.playerChoices.addEventListener("click", (e) => this.gamePlay(e));
   }
 }
 
